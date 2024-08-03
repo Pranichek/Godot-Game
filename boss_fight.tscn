@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://8y2xxdg1pwmw"]
+
+[ext_resource type="Texture2D" uid="uid://cwf117775otye" path="res://scenes/IMG_1207-removebg-preview.png" id="1_ao0vp"]
+[ext_resource type="Texture2D" uid="uid://brlemi513tluy" path="res://scenes/IMG_1208-removebg-preview.png" id="2_ics8f"]
+[ext_resource type="Texture2D" uid="uid://dxqjxg2cgpwe2" path="res://scenes/IMG_1209-removebg-preview.png" id="3_kssys"]
+[ext_resource type="Texture2D" uid="uid://bj60k857byu0c" path="res://scenes/IMG_1210-removebg-preview.png" id="4_kahfl"]
+[ext_resource type="Script" path="res://statte_machine.gd" id="5_632wq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j1ifs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ao0vp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ics8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kssys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kahfl")
+}],
+"loop": true,
+"name": &"haha",
+"speed": 5.0
+}]
+
+[node name="boss fight" type="Node"]
+
+[node name="boss" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="boss"]
+position = Vector2(153.75, 72.75)
+scale = Vector2(0.605, 0.537)
+sprite_frames = SubResource("SpriteFrames_j1ifs")
+animation = &"haha"
+autoplay = "haha"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss"]
+
+[node name="Label" type="Label" parent="boss"]
+offset_left = 79.0
+offset_top = -200.0
+offset_right = 272.0
+offset_bottom = -59.0
+theme_override_font_sizes/font_size = 100
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="boss"]
+position = Vector2(153, 105)
+target_position = Vector2(9, 255)
+
+[node name="statte_machine" type="Node2D" parent="boss"]
+script = ExtResource("5_632wq")
+
+[node name="Idle" type="Node2D" parent="boss/statte_machine"]
+
+[node name="shoot" type="Node2D" parent="boss/statte_machine"]
+
+[node name="follow" type="Node2D" parent="boss/statte_machine"]
+
+[node name="dash" type="Node2D" parent="boss/statte_machine"]
